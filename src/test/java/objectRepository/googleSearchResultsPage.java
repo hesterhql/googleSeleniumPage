@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class googleSearchResultsPage {
+public class GoogleSearchResultsPage {
 	WebDriver driver;
 
 	@FindBy(xpath = "//input[@title=\"Search\"]")
@@ -26,7 +26,7 @@ public class googleSearchResultsPage {
      }
     
 	
-	public googleSearchResultsPage(WebDriver driver) {
+	public GoogleSearchResultsPage(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}

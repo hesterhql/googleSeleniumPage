@@ -11,11 +11,11 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class crossBrowserScript {
+public class CrossBrowserScript {
 	
 	public WebDriver driver;
 	
-	public crossBrowserScript(WebDriver driver) {
+	public CrossBrowserScript(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 		this.driver=driver;
 		PageFactory.initElements(driver, this);

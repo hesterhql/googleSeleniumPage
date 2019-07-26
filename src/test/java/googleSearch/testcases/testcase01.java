@@ -19,10 +19,10 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import objectRepository.crossBrowserScript;
-import objectRepository.googleSearchResultsPage;
+import objectRepository.CrossBrowserScript;
+import objectRepository.GoogleSearchResultsPage;
 
-public class testcase01 {
+public class Testcase01 {
 
 	WebDriver driver;
 	//cb.setup("chrome");
@@ -100,7 +100,7 @@ public class testcase01 {
 		driver.get(prop.getProperty("startUrl"));
 		
 		Thread.sleep(6000);
-		googleSearchResultsPage gsrp = new googleSearchResultsPage(driver);
+		GoogleSearchResultsPage gsrp = new GoogleSearchResultsPage(driver);
 		gsrp.chooseTab("All").click();
 		gsrp.chooseTab("News").click();
 		gsrp.chooseTab("Images").click();
