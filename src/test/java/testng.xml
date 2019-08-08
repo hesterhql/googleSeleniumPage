@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<test name="test01">
+<parameter name = "browser" value = "chrome"/>
+<classes>
+<class name="googleSearch.testcases.baseTest"/>
+<class name="googleSearch.testcases.testcase01">
+<class name="googleSearch.testcases.ChromeTest">
+
+</class>
+</classes>
+</test>
+
+
+
+<!-- Test -->
+</suite> <!-- Suite -->

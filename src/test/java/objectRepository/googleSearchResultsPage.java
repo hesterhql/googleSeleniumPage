@@ -1,6 +1,7 @@
 package objectRepository;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,13 +11,10 @@ public class GoogleSearchResultsPage {
 	WebDriver driver;
 
 	@FindBy(xpath = "//input[@title=\"Search\"]")
-	public WebElement searchBox;
-	
-	@FindBy(xpath = "//*[@id=\"iSeekSearchButton\"]")
-	public WebElement searchButton;
+	private WebElement searchBox;
 	
 	@FindBy(css = "#nav > tbody")
-	public WebElement pageGroup;
+	private WebElement pageGroup;
 
     public WebElement chooseTab(String tabName) {
     	if(tabName=="All")
@@ -25,6 +23,11 @@ public class GoogleSearchResultsPage {
     		return this.driver.findElement(By.xpath("//*[@id=\"hdtb-msb-vis\"]//a[contains(text(),\""+tabName+"\")]"));
      }
     
+    public void sendSearchContent(String keyword) {
+    	if (keyword!=null)
+    		searchBox.sendKeys(keyword); 
+    		searchBox.sendKeys(Keys.ENTER);	
+    }
 	
 	public GoogleSearchResultsPage(WebDriver driver) {
 		this.driver=driver;
