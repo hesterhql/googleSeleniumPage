@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -30,30 +31,7 @@ public class BaseTest {
     	
     	FileInputStream fis = new FileInputStream("C:\\Users\\qhe\\eclipse-workspace\\googleSearch\\src\\test\\java\\globalParameters.properties");
     	prop.load(fis);
-/**
- *
- //this is use basic way to setup browser Property and location 
-    	if(prop.getProperty("browser").equalsIgnoreCase("chrome")) {
-    		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\qhe\\Downloads\\chromedriver.exe");
-    		System.setProperty("webdriver.chrome.driver", "C:\\Users\\qhe\\.m2\\repository\\webdriver\\chromedriver\\win32\\76.0.3809.68\\chromedriver.exe");
-
-    		driver = new ChromeDriver();
-
-    	}else if (prop.getProperty("browser").equalsIgnoreCase("firefox")) {
-    		System.setProperty("webdriver.firefox.marionette", ".\\geckodriver.exe");
-    		driver = new FirefoxDriver();
-    	}
-    	else if(prop.getProperty("browser").equalsIgnoreCase("Edge")){
-    		//set path to Edge.exe
-    		System.setProperty("webdriver.edge.driver",".\\MicrosoftWebDriver.exe");
-    		//create Edge instance
-    		driver = new EdgeDriver();
-    	}else{
-    		//If no browser passed throw exception
-    		throw new Exception("Browser is not correct");
-    	}
-    	**/
-    	
+  	
     	
     	if(prop.getProperty("browser").equalsIgnoreCase("chrome")) {
     	WebDriverManager.chromedriver().setup();
@@ -76,8 +54,7 @@ public class BaseTest {
     	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     	driver.manage().window().maximize();
     	
-//        driver = new FirefoxDriver();
-//        wait = new WebDriverWait(driver, 60);
+
     }
 
     @Test
@@ -93,8 +70,15 @@ public class BaseTest {
         //wait.until(ExpectedConditions.titleContains(HOMEPAGE_TITLE));
 
         final String windowTitle = driver.getTitle();
-        System.out.println(windowTitle);
+        Assert.assertEquals("Google", windowTitle);
     }
+    
+    public void pauseSecondTime(int second) throws Exception {
+    	
+		Thread.sleep(second*1000);
+
+    }
+
 
     @AfterTest
     public void tearDown() {

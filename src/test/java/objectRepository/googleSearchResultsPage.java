@@ -28,6 +28,12 @@ public class GoogleSearchResultsPage {
     		searchBox.sendKeys(keyword); 
     		searchBox.sendKeys(Keys.ENTER);	
     }
+    
+    public WebElement theFirstImageElement(String keyword) {
+    	WebElement image = driver.findElement(By.cssSelector("#rg_s div:nth-of-type(1) img[alt*='"+keyword+"']:nth-of-type(1)"));
+    	return image;
+    }
+	
 	
 	public GoogleSearchResultsPage(WebDriver driver) {
 		this.driver=driver;
